@@ -1,3 +1,19 @@
+# 简介
+此项目 fork 自：https://github.com/YongJie-Xie/PaddleocrAPI
+
+## 本地构建
+
+- 创建虚拟环境：init.bat
+- 安装：install.bat 
+> - pyinstaller 必须为此版本，否则生成的 exe 不会开始运行
+> - numpy 不为此版本 paddle ocr 会报错
+- 自动修改文件：replace.bat (替换 paddle\dataset\image.py)
+- 构建：build.bat；清除缓存后构建: rebuild.bat
+- 运行：run.bat
+---
+
+原始文档：
+
 # Paddleocr API
 
 这是由 FastAPI 包装的 Paddleocr 文本识别 API 接口，并使用 Pyinstaller 打包编译为可执行文件。
