@@ -1,1 +1,1 @@
-.\dist\PaddleocrAPI.exe --lang=ch --model-dir=..\model
+.\PaddleocrAPI.exe --lang=ch --model-dir=.\model

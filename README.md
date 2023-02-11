@@ -9,7 +9,8 @@
 > - numpy 不为此版本 paddle ocr 会报错
 - 自动修改文件：replace.bat (替换 paddle\dataset\image.py)
 - 构建：build.bat；清除缓存后构建: rebuild.bat
-- 运行：run.bat
+- 打包：pack.bat
+- 运行: 切换至dist，然后 run.bat
 ---
 
 原始文档：
