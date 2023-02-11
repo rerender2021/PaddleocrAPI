@@ -1,2 +1,2 @@
-Xcopy /Y /E /I .\model .\dist\model
-copy /Y ".\run.bat" ".\dist\run.bat"
+Xcopy /Y /E /I .\model .\dist\PaddleocrAPI\model
+copy /Y ".\run.bat" ".\dist\PaddleocrAPI\run.bat"
