@@ -52,7 +52,7 @@ parser.add_argument('--host', type=str, help='listen host')
 parser.add_argument('--port', type=int, help='listen port')
 parser.add_argument('--lang', type=str, help='language code')
 parser.add_argument('--model-dir', type=str, help=r'model folder')
-parser.set_defaults(host='127.0.0.1', port=8000, lang='en')
+parser.set_defaults(host='127.0.0.1', port=8000, lang='ch')
 params = parser.parse_args()
 
 # init logger
@@ -64,7 +64,7 @@ abs_model_dir = os.path.join(os.path.expanduser('~'), '.paddleocr')
 if params.model_dir:
     os.makedirs(params.model_dir, exist_ok=True)
     if os.path.isdir(params.model_dir):
-        abs_model_dir = os.path.abspath(params.model_dir)
+        abs_model_dir = os.path.join(os.path.abspath(params.model_dir), params.lang)
 log.info('PaddleocrAPI model dir: %s', abs_model_dir)
 
 # init fastapi & init paddleocr
@@ -73,6 +73,8 @@ try:
     from fastapi.responses import PlainTextResponse
     from fastapi.datastructures import StarletteUploadFile
     from paddleocr import PaddleOCR
+    # from PIL import Image
+    # from io import BytesIO
 
     app = FastAPI(openapi_url=None)
     ocr = PaddleOCR(
@@ -141,6 +143,8 @@ async def ocr_endpoint(
             data = await request.json()
             for key, image in data.items():  # type: str, str
                 images[key] = base64.b64decode(image)
+                # image = Image.open(BytesIO(base64.b64decode(image)))
+                # image.save('result.jpg')
         else:
             log.warning('Unsupported Content-Type: %s', type(content_type))
 
