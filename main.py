@@ -52,7 +52,7 @@ parser.add_argument('--host', type=str, help='listen host')
 parser.add_argument('--port', type=int, help='listen port')
 parser.add_argument('--lang', type=str, help='language code')
 parser.add_argument('--model-dir', type=str, help=r'model folder')
-parser.set_defaults(host='127.0.0.1', port=8000, lang='ch')
+parser.set_defaults(host='127.0.0.1', port=8000, lang='ch') # ch, en, japan
 params = parser.parse_args()
 
 # init logger
